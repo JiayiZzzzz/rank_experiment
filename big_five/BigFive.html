@@ -1,0 +1,39 @@
+{{ block title }}
+    Big Five Personality Test
+{{ endblock }}
+{{ block content }}
+
+<p>
+请考虑以下句子是否符合您的情况:
+    <b>"我认为我自己...</b>".
+</p>
+
+<table class="table table-striped">
+    <tr>
+        <th></th>
+        <th>强烈不同意</th>
+        <th>不同意</th>
+        <th>中立</th>
+        <th>同意</th>
+        <th>强烈同意</th>
+    </tr>
+    {{ for field in form }}
+    <tr>
+        <th>{{ field.label }}</th>
+        {{ for option in field }}
+        <td>{{ option }}</td>
+        {{ endfor }}
+    </tr>
+    {{ endfor }}
+</table>
+
+{{ next_button }}
+
+<script>
+    // workaround needed until wtforms #615 is published
+    for (let option of document.querySelectorAll('input[type=radio]')) {
+        option.required = 'required';
+    }
+</script>
+
+{{ endblock }}

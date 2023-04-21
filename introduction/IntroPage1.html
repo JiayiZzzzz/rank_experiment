@@ -1,0 +1,47 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Welcome, everyone!
+{% endblock %}
+
+
+{% block content %}
+
+<p>
+    <br/> 感谢您来参加今天的有偿实验。
+</p>
+
+<p>
+    <br/>本次实验包含 <b>两个环节</b>。
+    第一个环节为 <b>task session</b>， 其中包含两轮<span style="color:#FF0000;font-weight:bold;">五分钟 math task</span>。
+    第二个环节为 <b>questionnaire session</b>。您需要回答一系列调查问卷。
+    当实验结束时，我们会与您玩一个 <span style="color:#FF0000;font-weight:bold;">虚拟彩票游戏</span>。
+    整场实验预计少于<b>25分钟</b>。 请确保您有足够的时间。
+</p>
+
+<p>
+    <br/>实验结束后，您将会得到<span style="color:#FF0000;font-weight:bold;">12元</span>参与费。此外，根据您在实验中的表现与决策，您还能够得到额外报酬。
+    在正式实验中，我们会详细告知您如何才能得到额外报酬。
+</p>
+
+<p>
+    <br/>请确保您的参与是完全自愿的。在实验过程中，您的决策将保持匿名。此外，您可以随时退出实验。
+</p>
+
+<p>
+    <br/>但是，如果您退出了本场实验，您将不会获得任何报酬。
+</p>
+
+<p>
+    <br/>在实验开始时，您将被随机地分到一个6人小组。实验全程请勿与其他人交流。
+    此外，在实验过程中，您可以使用桌子上的草稿纸，但不允许使用任何计算器。
+</p>
+
+<p>
+    <br/>我已经阅读以上信息，并同意参与这项研究。
+</p>
+
+    {% next_button %}
+
+{% endblock %}

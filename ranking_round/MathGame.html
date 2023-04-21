@@ -1,0 +1,57 @@
+{{ block title }}
+    Forced Ranking Math Task
+{{ endblock }}
+{{ block content }}
+
+<p>
+    您已正确回答了 {{ participant.forced_total_correct }} 题。
+</p>
+
+<p><b>{{ player.question }}</b></p>
+
+    {{ formfields }}
+
+
+<br/>在场上的 {{ num_players }} 人小组中，您的排名处于 <b>{{ player.rank_info }}</b> <br/>
+
+
+<p>请点击 <b>"Next"</b> 按钮来提交您的答案并跳转到下一题。</p>
+<p>如果您想退出本轮游戏，请点击 <b>"QUIT"</b> 按钮。</p>
+<!-- <p>Your finished questions and answers will be recorded anyway.</p> -->
+<button name="is_quit" onclick="next()">Next</button>
+<button name="is_quit" onclick="quit()">QUIT</button>
+
+<script>
+    function quit() {
+        liveSend({'quit': true});
+    }
+
+    function next() {
+        liveSend({'quit': false});
+    }
+
+    function check_minute(time) {
+        liveSend({'eliminate': true, 'time': time});
+    }
+
+     function liveRecv(out_signal) {
+        if(out_signal){
+            $("#_otree-title").html("<b>YOU ARE OUT!</b><br/>");
+            $('.otree-form').hide();
+            $('.otree-timer').hide();
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $('.otree-timer__time-left').on('update.countdown', function (event) {
+            left_time = event.offset.totalSeconds;
+            if (left_time == 180 || left_time == 120 || left_time == 60) {
+                check_minute(left_time);
+            };
+        });
+    });
+</script>
+<style>
+
+</style>
+{{ endblock }}

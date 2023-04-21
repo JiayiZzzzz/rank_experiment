@@ -1,0 +1,38 @@
+{{ block title }}
+    Rosenberg Self-Esteem Scale
+{{ endblock }}
+{{ block content }}
+
+<p>
+    下面是一系列关于日常感受表述。
+    请思考这些句子是否呈现了您目前的情况，并选择您对每一个表述的同意程度。
+</p>
+
+<table class="table table-striped">
+    <tr>
+        <th></th>
+        <th>强烈不同意</th>
+        <th>大致不同意</th>
+        <th>大致同意</th>
+        <th>强烈同意</th>
+    </tr>
+    {{ for field in form }}
+    <tr>
+        <th>{{ field.label }}</th>
+        {{ for option in field }}
+        <td>{{ option }}</td>
+        {{ endfor }}
+    </tr>
+    {{ endfor }}
+</table>
+
+{{ next_button }}
+
+<script>
+    // workaround needed until wtforms #615 is published
+    for (let option of document.querySelectorAll('input[type=radio]')) {
+        option.required = 'required';
+    }
+</script>
+
+{{ endblock }}

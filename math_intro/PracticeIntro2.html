@@ -1,0 +1,32 @@
+{{ block title }}
+    Math Task introduction
+{{ endblock }}
+{{ block content }}
+<p>
+    <br/> <b>举个例子：</b>
+</p>
+<p>
+    <br/> 数学题将以这样的方式呈现：
+    <br/>
+    <br/> <b>17 + 50 + 67 + 18 + 86 = ?</b>
+    <br/>
+    <br/> 本题的正确答案为 <b>238</b>，您可以在空白框里输入您的答案。
+</p>
+
+<p>
+    <br/> 每轮游戏中，屏幕上将显示一个<span style="color:#FF0000;font-weight:bold;">“QUIT”</span>按钮。
+    <br/>
+    <br/> 单击该按钮，您可以随时退出当前环节。如果你选择<b>“QUIT”</b>，您仍然可以收到相应的报酬，只是不能再继续进行游戏。
+    <br/>
+    <br/>此外，在<b>“QUIT”后</b>，你需要呆在座位上且不能做任何事情，直到该回合结束。
+    <br/>
+    <br/> 每回合将在以下两种情况下自动结束：
+    <br/>     <b>i）</b>当所有参与者都按下了“QUIT”按。
+    <br/>     <b>ii）</b>游戏开始五分钟后。
+    <br/>
+    <br/> 在完成两轮解题游戏后，电脑将随机选择其中一轮，以决定您在Task session中所得报酬。
+</p>
+
+    {{ next_button }}
+
+{{ endblock }}

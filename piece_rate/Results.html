@@ -1,0 +1,19 @@
+{{ block title }}
+    PR round result
+{{ endblock }}
+
+{{ block content }}
+<p>
+    您正确回答了 {{ participant.piece_total_correct }} 题。
+</p>
+
+{{ next_button }}
+<!--
+<script>
+    if (player.round_number == C.NUM_ROUNDS) {
+        {{ next_button }}
+    }
+</script>
+-->
+{{ endblock }}
+

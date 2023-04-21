@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Math Task Payment Result
+{% endblock %}
+
+{% block content %}
+    <p>
+        感谢您的回答！ <br />
+        您在Math task中的报酬将取决于您在{{ participant.math_task_pay }}中的表现。
+    </p>
+
+    {% next_button %}
+
+{% endblock %}

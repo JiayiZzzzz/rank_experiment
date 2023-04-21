@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Gamble Result
+{% endblock %}
+
+{% block content %}
+    <p>
+        Your virtual coin shows {{ player.event }}<br />
+        Your payoff this round is {{ player.gain }}.
+    </p>
+
+    {% next_button %}
+
+{% endblock %}
+

@@ -1,0 +1,23 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Demographic Question
+{% endblock %}
+
+
+{% block content %}
+
+<p>
+    <br/>在实验开始前，我们希望了解一些您的相关信息。
+</p>
+
+<p>
+    <br/>请回答下列问题：
+</p>
+
+    {% formfields %}
+
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+
+	Gamble Choice
+
+{% endblock %}
+
+{% block content %}
+
+	<div class="container-fluid">
+		<div class="panel panel-primary">
+			<div class="panel-body">
+				<h4>说明</h4>
+
+				<p> 在本轮游戏中，请从一下的乐透选项中选择一个。每个乐透都存在两种可能的结果 <i>High</i> 或者 <i>Low</i> ，每个发生的几率为50%。</p>
+				<p>在您做出选择后，系统将自动投掷一枚虚拟硬币来决定您的报酬。如果硬币显示 <i>正面</i>，您将会得到正面对应的分数。
+					如果硬币显示 <i>反面</i>，您将会得到反面对应的分数。 </p>
+
+				<p> 因此，您在本轮游戏的报酬将由以下因素决定：</p>
+
+				<ul>
+					<li>您在五个乐透选项中所做的选择</li>
+					<li>其触发的结果</li>
+				</ul>
+
+				<p>举个例子，如果您选择了Gamble 4 且虚拟硬币的投掷结果为 <i>正面</i> ，您将会获得 {{ C.choice_4_high }} 分。
+					如果是 <i>反面</i> ，您将会获得 {{ C.choice_4_low }} 分。</p>
+
+				<p>下面列出了五种不同的乐透，请做出您的选择。</p>
+
+
+				<div class="table-responsive">
+				<table class="table">
+					<tr>
+						<th style="text-align:center">选项</th>
+						<th style="text-align:center">正面</th>
+						<th style="text-align:center">反面</th>
+					</tr>
+					<tr>
+						<td style="text-align:center">选项 1</td>
+						<td style="text-align:center">{{ C.choice_1_high }} 分</td>
+						<td style="text-align:center">{{ C.choice_1_low }} 分</td>
+					</tr>
+					<tr>
+						<td style="text-align:center">选项 2</td>
+						<td style="text-align:center">{{ C.choice_2_high }} 分</td>
+						<td style="text-align:center">{{ C.choice_2_low }} 分</td>
+					</tr>
+					<tr>
+						<td style="text-align:center">选项 3</td>
+						<td style="text-align:center">{{ C.choice_3_high }} 分</td>
+						<td style="text-align:center">{{ C.choice_3_low }} 分</td>
+					</tr>
+					<tr>
+						<td style="text-align:center">选项 4</td>
+						<td style="text-align:center">{{ C.choice_4_high }} 分</td>
+						<td style="text-align:center">{{ C.choice_4_low }} 分</td>
+					</tr>
+					<tr>
+						<td style="text-align:center">选项 5</td>
+						<td style="text-align:center">{{ C.choice_5_high }} 分</td>
+						<td style="text-align:center">{{ C.choice_5_low }} 分</td>
+					</tr>
+				</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<b>请做出您的选择</b>
+			</div>
+
+			<div class="panel-body">
+				{% formfields %}
+			</div>
+		</div>
+	</div>
+	{% next_button %}
+
+{% endblock %}
