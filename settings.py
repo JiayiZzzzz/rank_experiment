@@ -8,8 +8,17 @@ app_sequence=['introduction', 'consent', 'demographic_question', 'math_intro', '
 """
 SESSION_CONFIGS = [
     dict(
-        name='Experiment',
-        app_sequence=['ranking_round'],
+        name='Spade',
+        app_sequence=['introduction', 'consent', 'demographic_question', 'math_intro', 'practice_round',
+                      'piece_rate', 'ranking_round',
+                      'estimation_emotion', 'self_esteem_scale', 'big_five', 'PEI', 'gamble_choice'],
+        num_demo_participants=6,
+    ),
+    dict(
+        name='Heart',
+        app_sequence=['introduction', 'consent', 'demographic_question', 'math_intro', 'practice_round',
+                      'ranking_round', 'piece_rate',
+                      'estimation_emotion', 'self_esteem_scale', 'big_five', 'PEI', 'gamble_choice'],
         num_demo_participants=6,
     ),
 ]
