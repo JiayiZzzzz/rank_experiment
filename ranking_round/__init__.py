@@ -158,6 +158,10 @@ class FRIntro(Page):
             participant.forced_track_2min_correct = 0
             participant.forced_track_3min_correct = 0
             participant.forced_track_4min_correct = 0
+            participant.forced_track_1min_attempt = 0
+            participant.forced_track_2min_attempt = 0
+            participant.forced_track_3min_attempt = 0
+            participant.forced_track_4min_attempt = 0
             participant.forced_rank = 0
 
         return subsession.period == 1
@@ -203,13 +207,19 @@ class MathGame(Page):
             player_rank_sort(player.group)
             if get_timeout_seconds1(player) <= C.time_limit - 60 and participant.forced_track_1min_correct == 0:
                 participant.forced_track_1min_correct = participant.forced_total_correct
+                participant.forced_track_1min_attempt = participant.forced_total_attempt
+
             if get_timeout_seconds1(player) <= C.time_limit - 120 and participant.forced_track_2min_correct == 0:
                 participant.forced_track_2min_correct = participant.forced_total_correct
+                participant.forced_track_2min_attempt = participant.forced_total_attempt
 
             if get_timeout_seconds1(player) <= C.time_limit - 180 and participant.forced_track_3min_correct == 0:
                 participant.forced_track_3min_correct = participant.forced_total_correct
+                participant.forced_track_3min_attempt = participant.forced_total_attempt
+
             if get_timeout_seconds1(player) <= C.time_limit - 240 and participant.forced_track_4min_correct == 0:
                 participant.forced_track_4min_correct = participant.forced_total_correct
+                participant.forced_track_4min_attempt = participant.forced_total_attempt
             return get_timeout_seconds1(player) > 0
 
     @staticmethod

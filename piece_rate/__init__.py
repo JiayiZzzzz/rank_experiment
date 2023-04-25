@@ -110,6 +110,11 @@ class PRIntro(Page):
             participant.piece_track_2min_correct = 0
             participant.piece_track_3min_correct = 0
             participant.piece_track_4min_correct = 0
+
+            participant.piece_track_1min_attempt = 0
+            participant.piece_track_2min_attempt = 0
+            participant.piece_track_3min_attempt = 0
+            participant.piece_track_4min_attempt = 0
             participant.piece_rank = 0
 
         return subsession.period == 1
@@ -171,13 +176,19 @@ class MathGame(Page):
             # 这里应该只能记录四个，得时刻记得改
             if get_timeout_seconds1(player) <= C.time_limit - 60 and participant.piece_track_1min_correct == 0:
                 participant.piece_track_1min_correct = participant.piece_total_correct
+                participant.piece_track_1min_attempt = participant.piece_total_attempt
+
             if get_timeout_seconds1(player) <= C.time_limit - 120 and participant.piece_track_2min_correct == 0:
                 participant.piece_track_2min_correct = participant.piece_total_correct
+                participant.piece_track_2min_attempt = participant.piece_total_attempt
 
             if get_timeout_seconds1(player) <= C.time_limit - 180 and participant.piece_track_3min_correct == 0:
                 participant.piece_track_3min_correct = participant.piece_total_correct
+                participant.piece_track_3min_attempt = participant.piece_total_attempt
+
             if get_timeout_seconds1(player) <= C.time_limit - 240 and participant.piece_track_4min_correct == 0:
-                participant.piece_track_4min_correct = participant.piece_total_correct   
+                participant.piece_track_4min_correct = participant.piece_total_correct
+                participant.piece_track_4min_attempt = participant.piece_total_attempt
 
             return get_timeout_seconds1(player) > 0
 
