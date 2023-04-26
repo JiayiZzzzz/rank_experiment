@@ -34,10 +34,9 @@ class C(BaseConstants):
     PLAYERS_PER_GROUP = 6
     TIMER_TEXT = "Time to complete this section:"
     time_limit = 300
-    ROUNDS_PER_SG = [180]  #一共多少道题，这里需要改
+    ROUNDS_PER_SG = [100]
     SG_ENDS = cumsum(ROUNDS_PER_SG)
     NUM_ROUNDS = sum(ROUNDS_PER_SG)
-    # print('num round: ', NUM_ROUNDS)
     problem_num = NUM_ROUNDS
     ques = []
     ans = []
@@ -54,7 +53,6 @@ def creating_session(subsession: Subsession):
     if subsession.round_number == 1:
         sg = 1
         period = 1
-        # print('有', len(subsession.get_players()), '个玩家')
         for ss in subsession.in_rounds(1, C.NUM_ROUNDS):
             ss.sg = sg
             ss.period = period
@@ -154,10 +152,8 @@ class MathGame(Page):
 
     @staticmethod
     def is_displayed(player: Player):
-        # subsession = player.subsession
         participant = player.participant
         if participant.piece_status == 'QUIT':
-            # print('您已选择退出游戏')
             return False
         else:
             group = player.group
@@ -173,7 +169,6 @@ class MathGame(Page):
                 players[i].participant.piece_rank = rank
 
             participant = player.participant
-            # 这里应该只能记录四个，得时刻记得改
             if get_timeout_seconds1(player) <= C.time_limit - 60 and participant.piece_track_1min_correct == 0:
                 participant.piece_track_1min_correct = participant.piece_total_correct
                 participant.piece_track_1min_attempt = participant.piece_total_attempt
@@ -203,7 +198,6 @@ class MathGame(Page):
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
         participant = player.participant
-        # print('ans: ', player.field_maybe_none('answer'), ' cor ans: ', C.ans[player.round_number - 1])
         if player.field_maybe_none('answer') == C.ans[player.round_number - 1] and player.is_quit == 0:
             player.is_correct = True
             participant.piece_total_correct += 1
@@ -212,15 +206,12 @@ class MathGame(Page):
         elif player.field_maybe_none('answer') != C.ans[player.round_number - 1] and player.is_quit == 0:
             player.is_correct = False
             participant.piece_total_attempt += 1
-            # print('attempt times: ', participant.piece_total_attempt)
-            # print('correct times: ', participant.piece_total_correct)
             return True
         elif player.is_quit:
             if participant.piece_status == 'STAY':
                 participant.piece_status = 'QUIT'
             if participant.piece_duration == C.time_limit:
                 participant.piece_duration = C.time_limit - get_timeout_seconds1(player)
-                # print('quit time:', participant.piece_duration)
             return False
 
 

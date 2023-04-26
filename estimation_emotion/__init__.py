@@ -60,7 +60,7 @@ class Rank(Page):
         participant = player.participant
         participant.rank_guess = player.q1
         if participant.rank_guess == participant.piece_rank:
-            participant.payoff += 1
+            participant.payoff += 0.5
 
 
 class Psych1(Page):
@@ -78,7 +78,7 @@ class Psych1(Page):
             participant.math_task_pay = 'Forced ranking round'
             participant.payoff += 0.5 * participant.forced_total_correct
             if participant.forced_rank == 1:
-                participant.payoff += 5  #这里需要改
+                participant.payoff += 10  #这里需要改
 
 
 class Results(Page):

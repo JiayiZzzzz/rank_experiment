@@ -33,12 +33,9 @@ class C(BaseConstants):
     NAME_IN_URL = 'practice_round'
     PLAYERS_PER_GROUP = None
     TIMER_TEXT = "Time to complete this section:"
-    # first supergame lasts 2 rounds, second supergame lasts 3 rounds, etc... what is the meaning here?
-    ROUNDS_PER_SG = [50]
+    ROUNDS_PER_SG = [30]
     SG_ENDS = cumsum(ROUNDS_PER_SG)
-    # print('SG_ENDS is', SG_ENDS)
     NUM_ROUNDS = sum(ROUNDS_PER_SG)
-    print('num round: ', NUM_ROUNDS)
     problem_num = NUM_ROUNDS
     ques = []
     ans = []
@@ -55,7 +52,6 @@ def creating_session(subsession: Subsession):
     if subsession.round_number == 1:
         sg = 1
         period = 1
-        print('有', len(subsession.get_players()), '个玩家')
         for ss in subsession.in_rounds(1, C.NUM_ROUNDS):
             ss.sg = sg
             ss.period = period
@@ -84,9 +80,10 @@ def get_timeout_seconds1(player: Player):
     return participant.expiry - time.time()
 
 
+"""
 def is_displayed1(player: Player):
-    """only returns True if there is time left."""
     return get_timeout_seconds1(player) > 0
+"""
 
 
 # PAGES
@@ -104,7 +101,6 @@ class Intro(Page):
 
 
 class MathGame(Page):
-    # is_displayed = is_displayed1
     get_timeout_seconds = get_timeout_seconds1
     timer_text = C.TIMER_TEXT
     form_model = "player"

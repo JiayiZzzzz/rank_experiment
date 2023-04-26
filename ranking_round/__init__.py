@@ -33,8 +33,8 @@ class C(BaseConstants):
     NAME_IN_URL = 'ranking_round'
     PLAYERS_PER_GROUP = 6
     TIMER_TEXT = "Time to complete this section:"
-    time_limit = 300  # 这里调节时间限制
-    ROUNDS_PER_SG = [180]  # 一共多少道题，这里需要改
+    time_limit = 300
+    ROUNDS_PER_SG = [100]
     SG_ENDS = cumsum(ROUNDS_PER_SG)
     NUM_ROUNDS = sum(ROUNDS_PER_SG)
     # print('num round: ', NUM_ROUNDS)
@@ -54,7 +54,6 @@ def creating_session(subsession: Subsession):
     if subsession.round_number == 1:
         sg = 1
         period = 1
-        # print('有', len(subsession.get_players()), '个玩家')
         for ss in subsession.in_rounds(1, C.NUM_ROUNDS):
             ss.sg = sg
             ss.period = period
