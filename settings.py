@@ -9,14 +9,14 @@ app_sequence=['introduction', 'consent', 'demographic_question', 'math_intro', '
 SESSION_CONFIGS = [
     dict(
         name='Spade',
-        app_sequence=['introduction', 'demographic_question', 'math_intro', 'practice_round',
+        app_sequence=['introduction', 'consent', 'demographic_question', 'math_intro', 'practice_round',
                       'piece_intro', 'piece_rate', 'rank_intro', 'ranking_round',
                       'estimation_emotion', 'self_esteem_scale', 'big_five', 'PEI', 'gamble_choice'],
         num_demo_participants=6,
     ),
     dict(
         name='Heart',
-        app_sequence=['introduction', 'demographic_question', 'math_intro', 'practice_round',
+        app_sequence=['introduction', 'consent', 'demographic_question', 'math_intro', 'practice_round',
                       'rank_intro', 'ranking_round', 'piece_intro', 'piece_rate',
                       'estimation_emotion', 'self_esteem_scale', 'big_five', 'PEI', 'gamble_choice'],
         num_demo_participants=6,
