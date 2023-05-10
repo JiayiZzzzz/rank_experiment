@@ -73,12 +73,12 @@ class Psych1(Page):
         participant = player.participant
         if draw == 1:
             participant.math_task_pay = 'Piece rate round'
-            participant.payoff += 0.5 * participant.piece_total_correct
+            participant.payoff += 0.25 * participant.piece_total_correct
         else:
             participant.math_task_pay = 'Forced ranking round'
-            participant.payoff += 0.5 * participant.forced_total_correct
+            participant.payoff += 0.25 * participant.forced_total_correct
             if participant.forced_rank == 1:
-                participant.payoff += 10  #这里需要改
+                participant.payoff += 5  #这里需要改
 
 
 class Results(Page):

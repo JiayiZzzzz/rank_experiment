@@ -34,7 +34,7 @@ class C(BaseConstants):
     PLAYERS_PER_GROUP = 6
     TIMER_TEXT = "Time to complete this section:"
     time_limit = 300
-    ROUNDS_PER_SG = [100]
+    ROUNDS_PER_SG = [80]
     SG_ENDS = cumsum(ROUNDS_PER_SG)
     NUM_ROUNDS = sum(ROUNDS_PER_SG)
     # print('num round: ', NUM_ROUNDS)
