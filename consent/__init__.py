@@ -25,8 +25,8 @@ class Player(BasePlayer):
 
 
 # PAGES
-class ConsentInform1(Page):
+class ConsentInform(Page):
     form_model = 'player'
 
 
-page_sequence = [ConsentInform1]
+page_sequence = [ConsentInform]
