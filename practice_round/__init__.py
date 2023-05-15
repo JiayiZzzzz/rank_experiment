@@ -33,7 +33,7 @@ class C(BaseConstants):
     NAME_IN_URL = 'practice_round'
     PLAYERS_PER_GROUP = None
     TIMER_TEXT = "Time to complete this section:"
-    ROUNDS_PER_SG = [30]
+    ROUNDS_PER_SG = [20]
     SG_ENDS = cumsum(ROUNDS_PER_SG)
     NUM_ROUNDS = sum(ROUNDS_PER_SG)
     problem_num = NUM_ROUNDS
