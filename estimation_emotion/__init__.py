@@ -69,20 +69,21 @@ class Psych1(Page):
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
-        draw = randint(0, 1)
         participant = player.participant
-        if draw == 1:
-            participant.math_task_pay = 'Piece rate round'
-            participant.payoff += 0.25 * participant.piece_total_correct + 12
-        else:
-            participant.math_task_pay = 'Forced ranking round'
-            participant.payoff += 0.25 * participant.forced_total_correct + 12
-            if participant.forced_rank == 1:
-                participant.payoff += 5  # 10 * 0.5
+        participant.payoff += 17
+        # draw = randint(0, 1)
+        # if draw == 1:
+        #     participant.math_task_pay = 'Piece rate round'
+        #     participant.payoff += 0.25 * participant.piece_total_correct + 12
+        # else:
+        #     participant.math_task_pay = 'Forced ranking round'
+        #     participant.payoff += 0.25 * participant.forced_total_correct + 12
+        #     if participant.forced_rank == 1:
+        #         participant.payoff += 5  # 10 * 0.5
 
 
 class Results(Page):
     form_model = "player"
 
 
-page_sequence = [Rank, Psych1, Results]
+page_sequence = [Rank, Psych1]
