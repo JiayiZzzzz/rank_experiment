@@ -21,6 +21,12 @@ SESSION_CONFIGS = [
                       'estimation_emotion', 'self_esteem_scale', 'big_five', 'PEI', 'gamble_choice'],
         num_demo_participants=6,
     ),
+    dict(
+        name='Diamond',
+        app_sequence=['introduction', 'consent', 'math_intro', 'practice_round',
+                      'rank_intro', 'ranking_round', 'piece_intro', 'piece_rate'],
+        num_demo_participants=6,
+    ),
 ]
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
 # in SESSION_CONFIGS, except those that explicitly override it.
