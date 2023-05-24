@@ -25,8 +25,8 @@ class Player(BasePlayer):
 
 
 # PAGES
-class IntroPage1(Page):
+class IntroPage2(Page):
     form_model = 'player'
 
 
-page_sequence = [IntroPage1]
+page_sequence = [IntroPage2]
