@@ -11,12 +11,12 @@ def problem_set(num, ques, ans):
         a = random.randint(10, 99)
         b = random.randint(10, 99)
         c = random.randint(10, 99)
-        # d = random.randint(10, 99)
+        d = random.randint(10, 99)
         # e = random.randint(10, 99)
         # result = a + b + c + d + e
         # string = '%2d + %2d + %2d + %2d + %2d= ? ' % (a, b, c, d, e)
-        result = a * b * c
-        string = '%2d x %2d x %2d = ? ' % (a, b, c)
+        result = a * b * c * d
+        string = '%2d x %2d x %2d x %2d = ? ' % (a, b, c, d)
         ques.append(string)
         ans.append(result)
     return ques, ans
@@ -72,7 +72,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     question = models.StringField()
-    answer = models.IntegerField(label='请输入您的答案：', min=1000, max=1000000, blank=True)
+    answer = models.IntegerField(label='请输入您的答案：', min=1000, max=100000000, blank=True)
     is_correct = models.BooleanField()
 
 
