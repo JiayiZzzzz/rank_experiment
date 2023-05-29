@@ -71,7 +71,7 @@ LANGUAGE_CODE = 'zh-hans'
 
 # e.g. EUR, GBP, CNY, JPY
 REAL_WORLD_CURRENCY_CODE = 'CNY'
-USE_POINTS = False
+USE_POINTS = True
 
 ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable

@@ -73,7 +73,7 @@ class Player(BasePlayer):
 
     def set_gain(self, r):
         self.event = r
-        self.gain = C.payoff_matrix[self.event][self.lottery_choice] * 0.5
+        self.gain = C.payoff_matrix[self.event][self.lottery_choice] # * 0.5
         self.payoff += self.gain
 
 
