@@ -36,7 +36,7 @@ class C(BaseConstants):
     PLAYERS_PER_GROUP = 6
     TIMER_TEXT = "Time to complete this section:"
     time_limit = 300
-    ROUNDS_PER_SG = [40]
+    ROUNDS_PER_SG = [20]
     SG_ENDS = cumsum(ROUNDS_PER_SG)
     NUM_ROUNDS = sum(ROUNDS_PER_SG)
     problem_num = NUM_ROUNDS
